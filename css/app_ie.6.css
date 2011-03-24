@@ -1,0 +1,33 @@
+input.imagebutton {
+    position:relative;
+    left: 290px;
+    top: -27px;
+}
+.map_class {
+    width: 360px;
+    height: 300px;
+    float: none;
+    margin-top: -20px;
+    margin-bottom: 15px;
+    /*position:relative;*/
+    left: 0px;
+    overflow: visible;
+}
+input.fileupload {
+    position:relative;
+    left: 0px;
+    top: -21px;
+    width: 260px;
+}
+.map_class1 {
+    width: 360px;
+    height: 300px;
+    float: none;
+    margin-top: -15px;
+    margin-bottom: 0px;
+    left: 0px;
+    overflow: visible;
+}
+div.fakefile {
+	left: -10px;
+}

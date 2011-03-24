@@ -1,0 +1,213 @@
+/* GENERAL ELEMENTS */
+
+* { margin: 0; padding: 0; }
+
+body, input, select, textarea { font-family: verdana, arial, helvetica, sans-serif; font-size: 14px; }
+body { color: #333;  background-color: #fff; text-align: center; }
+
+a:link { color:#0060BF; text-decoration: underline; }
+a:visited { color:#0060BF; text-decoration: underline; }
+a:active { color:#0060BF; text-decoration: underline; }
+a:hover { color:#000000; text-decoration: underline; }
+
+h1, h2, h3, h4, h5, h6 { font-family: "Lucida Grande", "Lucida Sans Unicode", geneva, verdana, arial, helvetica, sans-serif; font-weight: bold; color: #666; }
+h1 { font-size: 1.8em; margin: 0em 0em 0.6em 0em; color: #EC5800; }
+h2 { font-size: 1.5em; margin: 1.2em 0em 0.4em 0em; }
+h3 { font-size: 1.4em; margin: 1.2em 0em 0.4em 0em; color: #EC5800; }
+h4 { font-size: 1.2em; margin: 1.2em 0em 0.4em 0em; }
+h5 { font-size: 1.0em; margin: 1.2em 0em 0.4em 0em; }
+h6 { font-size: 0.8em; margin: 1.2em 0em 0.4em 0em; }
+
+img { border: 0px; }
+
+p { font-size: 1.0em; line-height: 1.3em; margin: 1.2em 0em 1.2em 0em; }
+li > p { margin-top: 0.2em; }
+pre { font-family: monospace; font-size: 1.0em; }
+strong, b { font-weight: bold; }
+
+/* PAGE ELEMENTS */
+
+/* Content */
+
+.service_list{
+    background: url('../images/button_backg.gif') repeat;
+    border-bottom-style:solid;
+    border-bottom-width:0.1em;
+    border-color:#BDBDBD;
+    width: auto;
+    height: 30px;
+    padding-left: 50px;
+    padding-top: 15px;
+    padding-bottom:5px;
+}
+
+.service_list1 {
+    max-width: auto;
+}
+.service_list:hover{
+    background-color: #E8EEF7;
+}
+.service_list_selected {
+    background: url('../images/button_backy2.gif') repeat;
+    /*background-color: #FFC*/
+}
+input.inputblur{
+    font-size: 1em;
+    font-weight: lighter;
+    color: #777777;
+}
+input.inputbox{
+    height: 28px;
+    line-height:30px;
+}
+input.imagebutton {
+    position:relative;
+    left: 290px;
+    top: -27px;
+}
+
+input.imagebutton1 {
+    position:relative;
+    left: 325px;
+    top: -27px;
+}
+input.fileupload {
+    position:relative;
+    left: 1px;
+    top: -23px;
+}
+
+
+.submit_form{
+    float:right;
+    position: relative;
+    right: 170px;
+    padding: 1px 1px 1px 1px;
+}
+.map_class {
+    width: 380px;
+    height: 300px;
+    float: none;
+    margin-top: -20px;
+    margin-bottom: -15px;
+    overflow: visible;
+}
+#content { margin: 0em auto; width: 765px; text-align: left; /* Win IE5 */ }
+.content { margin-left: 4.5em; margin-right: 4.5em;}
+.content ol, .content ul, .content li { font-size: 1.0em; line-height: 1.3em; margin: 0.2em 0 0.1em 1.5em; }
+.content ol.terms li { margin-bottom: 1em; }
+
+#blanket {
+background-color:#111;
+opacity: 0.65;
+filter:alpha(opacity=65);
+position:absolute;
+z-index: 9001;
+top:0px;
+left:0px;
+width:100%;
+}
+#popUpDiv {
+position:absolute;
+background-color:#eeeeee;
+width:250px;
+height:150px;
+z-index: 9002;
+}
+
+.right-panel {
+	float: right; 
+	width:400px; 
+	position:relative; 	
+	left:-5px; 
+	height: 100%;
+	background: url('../images/background.gif') repeat;
+}
+
+.right-panel1 {
+        float: right;
+        width:400px;
+        position:relative;
+        left:-5px;
+        height: 100%;
+        background: url('../images/background1.gif') repeat;
+}
+
+.right-panel2 {
+        float: right;
+        width:400px;
+        position:relative;
+        left:-5px;
+        height: 100%;
+        background: url('../images/background2.gif') repeat;
+}
+
+.left-panel {
+	padding-bottom: 10px;
+	float: left; 
+	width: 350px; 
+	border-style:solid;
+	border-width:0.1em 0.1em 0.1em 0.1em; 
+	border-color:#BDBDBD;
+}
+.tabs_content {
+	margin: 10px 1px 40px 10px;
+}
+.desc_div{
+    position:absolute;
+    width:250px;
+    height:90px;
+    z-index:100;
+    font-size: 0.9em;
+    border:0px solid #000000;
+    padding:10px;
+    display:none;
+    background:white;
+    /*background-image:url('../images/button_backg.gif');*/
+    background-repeat:repeat;
+    overflow:hidden;
+}
+
+
+.file_input_textbox
+{
+	float: left;
+	margin-top: 5px;
+	width: 250px;
+
+}
+
+.file_input_div
+{
+	position: relative; 
+	width: 68px; 
+	height: 30px; 
+	overflow: hidden;
+}
+
+.file_input_button
+{
+	width: 70px; 
+	height: 35px;
+	position: absolute; 
+	 background: url('../images/browse_bt.gif') no-repeat;
+	/*border-style: solid;*/
+}
+
+.file_input_hidden
+{
+	font-size: 45px; 
+	position: absolute; 
+	right: 0px; 
+	top: 0px;
+	opacity: 0; 
+	
+	filter: alpha(opacity=0); 
+	-ms-filter: "alpha(opacity=0)"; 
+	-khtml-opacity: 0; 
+	-moz-opacity: 0;
+}
+
+html {
+	overflow-y: hidden;
+}

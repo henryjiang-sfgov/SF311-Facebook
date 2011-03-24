@@ -1,0 +1,118 @@
+html {
+    min-height: 100%;
+    margin-bottom: 1px;
+}
+
+.unsel {
+    -moz-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+}
+
+body.v1 #content {
+    width: 765px;
+}
+
+body.v2 #content {
+    width: 870px;
+}
+
+
+.xtabs {
+    float: left;
+    width: 100%;
+    background: #fff url("../images/bg.gif") repeat-x bottom;
+    font-size: 1.0em;
+    line-height: normal;
+}
+
+.xtabs ul {
+    margin: 0;
+    padding: 0 10px 0 10px;
+    list-style: none;
+}
+
+.xtabs li {
+    float: left;
+    background: url("../images/left_white.png") no-repeat left top;
+    margin: 0;
+    padding: 0 2px 0 9px;
+    border-bottom: 1px solid #CACACA;
+    line-height: 1.8em;
+    text-decoration: none;
+}
+
+.xtabs .xtab_smartlist {
+    background: url("../images/left_blue.png") no-repeat left top;
+}
+
+.xtabs_grey li {
+    background: url("../images/left_grey.png") no-repeat left top;
+    text-decoration: none;
+}
+
+.xtabs a {
+    float: left;
+    display: block;
+    width: .1em;
+    background: url("../images/right_white.png") no-repeat right top;
+    padding: 2px 11px 0 2px;
+    text-decoration: none;
+    font-weight: bold;
+    color: #fff;
+    white-space: nowrap;
+    outline: none;
+}
+
+.xtabs .xtab_smartlist a {
+    background: url("../images/right_blue.png") no-repeat right top;
+}
+
+.xtabs_grey a {
+    background: url("../images/right_grey.png") no-repeat right top;
+}
+
+.xtabs>ul a {
+    width: auto;
+}
+
+/* Commented Backslash Hack hides rule from IE5-Mac \*/
+.xtabs a {
+    float: none;
+}
+
+/* End IE5-Mac hack */
+.xtabs a:hover {
+    color: #333;
+}
+
+.xtabs li a:link, .xtabs li a:visited, .xtabs li a:active {
+    text-decoration: none;
+    color: #fff;
+}
+
+.xtabs li.xtab_selected a:link, .xtabs li.xtab_selected a:visited, .xtabs li.xtab_selected a:active {
+    text-decoration: none;
+    color: #000;
+}
+
+.xtabs li.xtab_selected {
+    background-position: 0 -150px;
+    border-width: 0;
+}
+
+.xtabs li.xtab_selected a {
+    background-position: 100% -150px;
+    text-decoration: none;
+    padding-bottom: 1px;
+    color: #000;
+}
+
+.xtabs li:hover, .xtabs li:hover a {
+    background-position: 0 -150px;
+    color: #000;
+}
+
+.xtabs li:hover a {
+    background-position: 100% -150px;
+}

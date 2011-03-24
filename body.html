@@ -1,0 +1,167 @@
+    <script src="http://connect.facebook.net/en_US/all.js"></script>
+    <script type="text/javascript" src="./js/ui.js"></script>
+</head>
+<body onunload="GUnload()" onload="initialize();">
+<div style="overflow:hidden;">
+<center>
+<!--div style="width:780px;border-style:solid;border-width:0.1em;"-->
+<img src="images/311_header.gif" alt="open311 header gif">
+<br>
+<div id="content">
+<div id="left-panel" onmouseout="show_request_panel();" class="left-panel">
+    <div style="border-bottom-style:solid; border-bottom-width:0.1em; margin-bottom:5px;border-color:#BDBDBD;">
+    <table cellspacing="20">
+        <tr>
+            <td>
+                <strong>What would you like to report? <br>(for example, "Trash" or "Graffiti")</strong><br>
+
+                        <input class="inputbox inputblur" size=43 type="Text" id="service_search" name="service_search" onkeypress="key_up(this,event.keyCode, event.which);" onblur="update_search_key(this);" value="Search keyword" onfocus="this.value=''">
+                        <input type="hidden" id="search_value" value="Search keyword"/>
+                        <INPUT class="imagebutton" type=image name=btnG src="./images/search.jpg" height=25 width=25 onclick="search_list(this);">
+
+            </td>
+            <!--td>
+                Location: (exact or intersection)<br>
+                <input class="inputbox" type="text" id="address" value="1 south vanness, sf, ca" size=41>
+            </td-->
+        </tr>
+
+    </table>
+    </div>
+    <div id="service_list_div" onmouseover='toggle_tabs("info_content", "request_content", "output_content");' >
+        <input type='hidden' id='mouseover_service' value='' />
+        <script type="text/javascript"> search_list('');</script>
+    </div>
+</div>
+<div id="right-panel" class="right-panel">
+    <div style="" id="tasktabs" class="xtabs xtabs_grey" style="height:auto;">
+    <ul>
+	    <li id="request_li" style="display: none;">
+		    <a href="#" onclick="toggle_tabs('request_content', 'info_content','output_content'); setSelected(this);">Request</a>
+	    </li>
+	    <li  id="info_li" class="xtab_selected">
+	        <a href="#" onclick="toggle_tabs('info_content', 'request_content','output_content'); setSelected(this);">Info</a>
+	    </li>
+        <li  id="submitted_li" style="display: none;">
+	        <a href="#" onclick="toggle_tabs('output_content', 'request_content', 'info_content'); setSelected(this);">Submitted</a>
+	    </li>
+    </ul>
+    </div>
+
+    <br>
+    <div style="border-style:solid; border-width:0.1em; height:100%; border-color:#BDBDBD; ">
+    <div id="tabs_contents" class="tabs_content">
+
+    <div id="request_content" style="display: none;">
+        <strong>Request: </strong><span id="service_name">Please select a request</span>
+        <br><br>
+        <strong>Location:</strong> (exact or intersection)   <span id="location_error" style="display: none;"><font color="red">SF locations only</font></span>     <br>
+        <input class="inputbox" type="text" id="address" name='address' value="" onfocus="this.select();" maxlength=40 size=49>
+        <INPUT class="imagebutton1" type=image name=btnG src="./images/search.jpg" height=25 width=25 onclick="draw_map(document.getElementById('address'),'', '');">
+        <div class='map_class' id='map_area' style="display:none;"></div> <div id="errorLocationDiv" style="display:none;"></div>
+        <form id='request_form' action="" onSubmit='return validate_request(this);'  method="post" enctype="multipart/form-data">
+            <input type='hidden' id='selected_service' name='selected_service' value='' />
+	    <input type='hidden' id='selected_service_name' name='selected_service_name' value='' />
+            <input type='hidden' id='selected_address' name='selected_address' value='' />
+            <input type='hidden' id='fullname_h' name='fullname_h' value='' />
+            <input type='hidden' id='phone_h' name='phone_h' value='' />
+	        <input type="hidden"  id="selected_lat" name="selected_lat" />
+            <input type="hidden"  id="selected_lon" name="selected_lon" />
+            <br><br><strong>Full Name:</strong> &nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;
+            <a href="#" onMouseOver="showPop('desc_div');" onMouseOut="hidePop('desc_div');" onMouseMove="movePop('desc_div',event.clientX-1000,event.clientY-1115)">Why provide it?</a>
+            <input type='text' name='fullname' id='fullname' size="50">
+            <br><br> <strong>Email Address:</strong> <br><input type='text' name='email' id='email' size="50">
+            <br><br> <strong>Phone Number:</strong> <br><input type='text' name='phone' id='phone' size="50">
+            <br><br><strong>Brief Description: </strong><br><textarea id='description' name='description' cols='49' rows='3'></textarea><br>
+            <span><strong>Upload Media:</strong>(only jpg, gif, and png allowed)</span>
+
+	<input type="text" id="fileName" class="file_input_textbox" readonly="readonly" />
+	<div class="file_input_div">
+		<input type="button" value="" class="file_input_button" />
+		<input type="file" name="fileupload" id="fileupload" class="file_input_hidden" onchange="javascript: document.getElementById('fileName').value = this.value" />
+	</div>
+<br><br><input class='submit_form' type='image' src='images/submit_bt.gif' id='submit_request' value='Submit'></form>
+
+    </div>
+    <div id="info_content">
+        <div id="info_area">
+        <br>Step 1: Find the service<br>
+        <br>Step 2: Provide details <br>
+        <br>Step 3: Submit!<br>
+        <br><br><br>
+        </div>
+        <!--br><div id='map_info' class='map_class'></div-->
+    </div>
+    <input type="hidden" id="info_service_requested" />
+    <input type="hidden" id="info_service_desc" />
+    <div id="output_content" name="output_content" style="display: none;">
+        <!--form id="email_form" action="#" method="POST"-->
+	<form id="email_form" action="" onSubmit="return sendemail();">
+        <input type="hidden" id="requester_email" name="requester_email" />
+        <input type="hidden" id="service_request_id_h" name="service_request_id_h" />
+        <input type="hidden"  id="service_level_agreement_h" name="service_level_agreement_h" />
+        <input type="hidden"  id="service_requested_h" name="service_requested_h" />
+        <input type="hidden"  id="location_requested_h" name="location_requested_h" />
+        <input type="hidden"  id="description_requested_h" name="description_requested_h" />
+        <input type="hidden"  id="media_url_requested_h" name="media_url_requested_h" />
+	<input type="hidden"  id="status_url_h" name="status_url_h" />
+
+        <div id="service_request_id" name="service_request_id"></div><br>
+        <div id="service_level_agreement" name="service_level_agreement"></div><br>
+        <div id="service_requested" name="service_requested"></div><br>
+        <div id="location_requested" name="location_requested"></div><br>
+        <div id="description_requested" name="description_requested"></div><br>
+        <div id="media_url_requested" name="media_url_requested"></div><br>
+	    <!--a href="" id="status_url" name="status_url" onclick="window.open(this.href); return false;">click here for status update</a><br-->
+        <center><div id="email_to_me"></div>
+		<div id="return_to_facebook"></div>
+	</center><br>
+         </form>
+        <div id="map_requested" class="map_class1"></div>
+    </div>
+
+    </div>
+
+</div>
+
+</div>
+<div style="clear: both;"></div>
+</div>
+<div id="blanket" style="display:none;"></div>
+<div id="popUpDiv" style="display:none;">
+    <div id="errorMessage"><br>Please wait while we submit your request and obtain a tracking number. This normally takes about a minute.
+    <br><br><img alt="loading" src="images/loading-animated.gif" /> <br>
+    </div>
+</div>
+
+<div id="desc_div" class="desc_div">
+Providing your name and contact information lets departments call or email you if they need more information. Your email also allows you to track your service request on the  SF311 Website.
+</div>
+<img src="images/open311_footer.gif" alt="open311 footer gif">
+</center>
+ </div>
+<script type="text/javascript" language="Javascript">
+    if((typeof hasError != 'undefined') && (hasError)){
+        html_content = "<br>Submission error: <br>Please try again later.<br><br>";
+        html_content = html_content + "<a href=\"#\" onclick=\"popup('popUpDiv');\"> ok</a> ";
+        document.getElementById("errorMessage").innerHTML = html_content;
+        popup("popUpDiv");
+    }
+</script>
+<div id="fb-root"></div>
+<script>
+  window.fbAsyncInit = function() {
+    FB.init({appId: '', status: true, cookie: true,
+             xfbml: false});
+  };
+  (function() {
+    var e = document.createElement('script'); e.async = true;
+    e.src = document.location.protocol +
+      '//connect.facebook.net/en_US/all.js';
+    document.getElementById('fb-root').appendChild(e);
+  }());
+</script>
+
+</body>
+</html>
+

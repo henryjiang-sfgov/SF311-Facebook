@@ -1,0 +1,36 @@
+This is a custom application for the City and County of San Francisco
+311 to provide additional service request channels on Facebook.  The
+Facebook page hosting the application can be found here:
+
+http://www.facebook.com/pages/San-Francisco-311-Customer-Service-Center/108087772599933?sk=app_128760367192739
+
+The application is built on top of the Open311 PHP API by Mark Headd
+@voiceingov, http://www.voiceingov.org/blog/, and provided 'AS IS'.
+
+This is open source code; any entities are welcome to use, modify, or
+redistribute it under the terms of its license.  See the file COPYING.
+
+How to use:
+
+  1) download the open311 API library found in the file open311_api_link
+
+  2) download the facebook api found in the file facebook_api_link
+
+  3) obtain a google maps api key,
+     http://code.google.com/apis/maps/signup.html,
+     fill the key in index.php 
+
+  4) request SF open 311 Developer's API key
+     http://wiki.open311.org/San_Francisco#SF_Open_311_API,
+     this key is needed in serviceList.php
+        
+If the application is intended to be stand-alone, use index.php as the
+entry point
+
+If the application is to be "hosted" on facebook, use launch.php as the
+url when setting up the facebook app:
+
+  - You will need to set up a Facebook application, see
+    http://www.facebook.com/developers/ 
+
+  - You will need to edit launch.php to use your own APP ID.
