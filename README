@@ -1,3 +1,16 @@
+
+  ##########################################################################
+  ###                                                                    ###
+  ###                        NOTE (2011/08/18)                           ###
+  ###                                                                    ###
+  ### This code is being deprecated in favor of an Open311-based system  ###
+  ### from Code for America.  Please take a look there:                  ###
+  ###                                                                    ###
+  ###   https://github.com/codeforamerica/open311_facebook               ###
+  ###   http://www.facebook.com/nomealpoints?sk=app_157847207617169      ###
+  ###                                                                    ###
+  ##########################################################################
+
 This is a custom application for the City and County of San Francisco
 311 to provide additional service request channels on Facebook.  The
 Facebook page hosting the application can be found here:
